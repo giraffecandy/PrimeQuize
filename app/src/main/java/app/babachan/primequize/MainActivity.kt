@@ -12,7 +12,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val QUESTION_COUNT: Int = 1
+        private const val QUESTION_COUNT: Int = 10
     }
 
     var random: Random = Random()
@@ -30,19 +30,19 @@ class MainActivity : AppCompatActivity() {
             questions[i] = number
         }
 
-        point = 0
-        answerCount = 0
+//        point = 0
+//        answerCount = 0
 
         textView.text = questions[answerCount].toString() + ""
         textView.setTextColor(Color.BLACK)
 
-        fun batsu(v: View) {
-            var answer = true
+        batsuButton.setOnClickListener{
+            var answer = false
             val number = questions[answerCount]
 
             for(i in 2 until number) {
                 if (number % i == 0) {
-                    answer = false
+                    answer = true
                     break
                 }
             }
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun maru(v: View) {
+        maruButton.setOnClickListener {
             var answer = true
             val number = questions[answerCount]
 
